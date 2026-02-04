@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Persamaan Lingkaran</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 750px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    h2 {
+      color: #2980b9;
+    }
+
+    .nomor {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .box {
+      background: #ecf0f1;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      display: none;
+    }
+
+    button {
+      padding: 10px 15px;
+      background: #2980b9;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 15px;
+      margin-right: 8px;
+    }
+
+    button:hover {
+      background: #1f6391;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Persamaan Lingkaran</h1>
+
+  <h2 id="judul"></h2>
+  <p id="isi"></p>
+
+  <div class="box" id="cara"></div>
+  <div class="box" id="jawaban"></div>
+
+  <button onclick="toggleCara()">Tampilkan Cara Pengerjaan</button>
+  <button onclick="toggleJawaban()">Tampilkan Jawaban</button>
+  <button onclick="gantiMateri()">Soal Berikutnya</button>
+</div>
+
+<script>
+  const materi = [
+    {
+      judul: "Soal 1",
+      isi: "Tentukan persamaan lingkaran dengan pusat (0,3) yang menyinggung sumbu X.",
+      cara: "Pusat (0,3), r = 3 → masukkan ke rumus.",
+      jawaban: "(x - 0)² + (y - 3)² = 9"
+    },
+    {
+      judul: "Soal 2",
+      isi: "Tentukan persamaan lingkaran dengan pusat (4,0) yang menyinggung sumbu Y.",
+      cara: "Pusat (4,0), r = 4 → masukkan ke rumus.",
+      jawaban: "(x - 4)² + y² = 16"
+    },
+    {
+      judul: "Soal 3",
+      isi: "Lingkaran berpusat di (2,5) menyinggung sumbu X.",
+      cara: "Jari-jari = 5 → gunakan rumus lingkaran.",
+      jawaban: "(x - 2)² + (y - 5)² = 25"
+    },
+    {
+
+      judul: "Soal 4",
+      isi: "Lingkaran berpusat di (-3,0) menyinggung sumbu Y.",
+      cara: "r = 3 → substitusi ke rumus.",
+      jawaban: "(x + 3)² + y² = 9"
+    },
+    {
+      judul: "Soal 5",
+      isi: "Tentukan persamaan lingkaran dengan pusat (0,-4) menyinggung sumbu X.",
+      cara: "r = 4 → gunakan rumus standar.",
+      jawaban: "x² + (y + 4)² = 16"
+    },
+    {
+      judul: "Soal 6",
+      isi: "Tentukan persamaan lingkaran dengan pusat (0,3) yang menyinggung sumbu X.",
+      cara: "r = 3 → masukkan ke rumus.",
+      jawaban: "(x - 0)² + (y - 3)² = 9"
+    },
+    {
+      judul: "Soal 7",
+      isi: "Tentukan persamaan lingkaran dengan pusat (4,0) yang menyinggung sumbu Y.",
+      cara: "r = 4 → masukkan ke rumus.",
+      jawaban: "(x - 4)² + y² = 16"
+    },
+    {
+      judul: "Soal 8",
+      isi: "Lingkaran berpusat di (2,5) menyinggung sumbu X.",
+      cara: "r = 5 → gunakan rumus lingkaran.",
+      jawaban: "(x - 2)² + (y - 5)² = 25"
+    },
+    {
+      judul: "Soal 9",
+      isi: "Lingkaran berpusat di (-3,0) menyinggung sumbu Y.",
+      cara: "r = 3 → substitusi ke rumus.",
+      jawaban: "(x + 3)² + y² = 9"
+    },
+    {
+      judul: "Soal 10",
+      isi: "Tentukan persamaan lingkaran dengan pusat (0,-4) menyinggung sumbu X.",
+      cara: "r = 4 → gunakan rumus standar.",
+      jawaban: "x² + (y + 4)² = 16"
+    }
+  ];
+
+  let index = 0;
+
+  function gantiMateri() {
+    document.getElementById("judul").innerHTML = materi[index].judul;
+    document.getElementById("isi").innerHTML = materi[index].isi;
+    document.getElementById("cara").innerHTML = "<b>Cara:</b><br>" + materi[index].cara;
+    document.getElementById("jawaban").innerHTML = "<b>Jawaban:</b> " + materi[index].jawaban;
+
+    document.getElementById("cara").style.display = "none";
+    document.getElementById("jawaban").style.display = "none";
+
+    index++;
+    if (index >= materi.length) index = 0;
+  }
+
+  function toggleCara() {
+    const el = document.getElementById("cara");
+    el.style.display = el.style.display === "none" ? "block" : "none";
+  }
+
+  function toggleJawaban() {
+    const el = document.getElementById("jawaban");
+    el.style.display = el.style.display === "none" ? "block" : "none";
+  }
+
+  gantiMateri();
+</script>
+
+</body>
+</html>
